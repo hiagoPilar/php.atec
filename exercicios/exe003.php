@@ -115,7 +115,7 @@
     */
 
     // E - Determinar a percentagem dos N alunos de uma turma com idade superior a uma dada idade definida pelo utilizador. 
-
+    /*
     echo"Enter the number of students in the class: ";
     $students = (int) fgets(STDIN);
     echo"Enter the age to compare: ";
@@ -127,13 +127,29 @@
     for($i = 1; $i <= $students; $i++){
         echo"Enter the age of student $i: ";
         $studentAge = (int) fgets(STDIN);
-        if($studentAge < $age){
+        if($studentAge > $age){
             $count++;
         }
     }
+    if($students > 0){
+        $percentage = ($count / $students) * 100;
+        echo"The percentage of students older than $age is: " . number_format($percentage, 2) . "%\n";
+    }
+    */
 
+    // F - Ler uma sequência de números inteiros até que sejam introduzidos 5 números ímpares e que mostre o maior número par. Se não tiver sido introduzido nenhum número par deve aparecer uma mensagem adequada. 
 
-    ?>
+    $countOdd = 0;
+    $maxEven = null;
+
+    
+
+    echo"Enter a number: ";
+    $num = (int) fgets(STDIN);
+    
+
+   
+   ?>
 
 </body>
 </html>
