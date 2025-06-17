@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::get('hello-world', 'HelloWorldController@index');
 
 Route::get('batata', 'BatataController@index');
+
+
