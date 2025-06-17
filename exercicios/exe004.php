@@ -27,7 +27,7 @@ for ($i = count($num) - 1; $i >= 0; $i--) {
 
 
 // C - Dado um vector de N números inteiros, determinar o maior e o menor elemento assim como as respectivas posições.
-
+/*
 $num = [3, 1, 4, 1, 5, 9, 2, 6, 5];
 $bigger = $num[0];
 $smaller = $num[0];
@@ -46,8 +46,26 @@ foreach ($num as $index => $value){
     }
 }
 
-echo"The biggest number is $bigger at position $biggerPos.<br>";
-echo"The smallest number is $smaller at position $smallerPos.<br>";
+echo"The biggest number is $bigger at position $biggerPos.";
+echo"The smallest number is $smaller at position $smallerPos.";
+*/
+
+
+// D - Determinar, de uma sequência de valores lidos, o número de valores que são maiores que os seus dois vizinhos. Note que se devem excluir as extremidades. Exemplo: {8,2,4,1,6,12,5,9} São dois.
+
+
+$num = [1, 3, 2, 5, 4, 6, 8, 7];
+$bigger = $num[1];
+$smaller = $num[1];
+$counter = 0;
+
+for($i = 1; $i < count($num)-1; $i++){
+    if($num[$i] > $num[$i-1] && $num[$i] > $num[$i+1]){
+        $counter++;
+    }
+}
+echo"The number of values that are bigger than their two neighbors is $counter.";
+
 
 
 ?>
