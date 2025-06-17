@@ -52,8 +52,7 @@ echo"The smallest number is $smaller at position $smallerPos.";
 
 
 // D - Determinar, de uma sequência de valores lidos, o número de valores que são maiores que os seus dois vizinhos. Note que se devem excluir as extremidades. Exemplo: {8,2,4,1,6,12,5,9} São dois.
-
-
+/*
 $num = [1, 3, 2, 5, 4, 6, 8, 7];
 $bigger = $num[1];
 $smaller = $num[1];
@@ -65,7 +64,54 @@ for($i = 1; $i < count($num)-1; $i++){
     }
 }
 echo"The number of values that are bigger than their two neighbors is $counter.";
+*/
 
+
+// E - Dado um vector de N elementos determine a maior diferença entre dois elementos consecutivos.
+/*
+$num = [1, 3, 2, 5, 4, 6, 8, 7];
+$maxDifference = 0;
+
+for($i = 0; $i < count($num)-1; $i ++){
+    $difference = abs($num[$i] - $num[$i+1]);
+    if($difference > $maxDifference){
+        $maxDifference = $difference;
+    }
+}
+
+echo"The maximum difference between two consecutive elements is $maxDifference.";
+*/
+
+
+// F - Ler um vector de N elementos e calcular a média dos elementos ímpares.
+/*
+$num = [1, 3, 2, 5, 4, 6, 8, 7];
+$sum = 0;
+$count = 0;
+
+for($i = 0; $i < count($num); $i++){
+    if($num[$i] % 2 != 0){
+        $sum += $num[$i];
+        $count++;
+    }
+}
+$average = $count > 0 ? $sum / $count : 0;
+echo"The average of the odd elements is $average.";
+*/
+
+
+// G - Dado um vector de N elementos indicar quantos são múltiplos de 3.
+/*
+$num = [1, 3, 2, 5, 4, 6, 8, 7];
+$counter = 0;
+
+foreach ($num as $n){
+    if($n % 3 ==0){
+        $counter++;
+    }
+}
+echo"The number of elements that are multiples of 3 is $counter.";
+*/
 
 
 ?>
