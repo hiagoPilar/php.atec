@@ -138,17 +138,47 @@
     */
 
     // F - Ler uma sequência de números inteiros até que sejam introduzidos 5 números ímpares e que mostre o maior número par. Se não tiver sido introduzido nenhum número par deve aparecer uma mensagem adequada. 
-
+    /*
     $countOdd = 0;
     $maxEven = null;
 
-    
+    do{
+
+        echo"Enter a number: ";
+        $num = (int) fgets(STDIN);
+
+        if($num % 2 != 0){
+            $countOdd++;
+        }else{
+            $maxEven = ($maxEven === null || $num > $maxEven) ? $num : $maxEven;
+        }
+
+    }while($countOdd < 5);
+
+    if($maxEven !== null){
+        echo"The largest even number entered is: $maxEven\n";
+    }else{
+        echo"No even numbers were entered.\n";
+    }
+    */
+
+    // G - Ler um número introduzido pelo utilizador, e imprimir a sequencia desde o numero 1 até ao próprio, e imprimir de forma inversa até ao numero 1 novamente, utilizando apenas a estrutura de repetição “for” um única vez. EXP: 123454321
 
     echo"Enter a number: ";
-    $num = (int) fgets(STDIN);
-    
+    $n = (int) fgets(STDIN);
 
-   
+    if($n <= 0){
+        echo"Invalid number!";
+        exit;
+    }
+
+    for($i = 1; $i <= $n; $i++){
+        echo $i;
+    }
+    for($i = $n - 1; $i >= 1; $i--){
+        echo $i;
+    }
+    
    ?>
 
 </body>
