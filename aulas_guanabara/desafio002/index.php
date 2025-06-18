@@ -20,7 +20,7 @@
                 $rand = rand(0, 100);
                 echo "O valor gerado foi: <strong>$rand</strong>";
             } else {
-                echo "CLique no botão abaixo para gerar um número aleatório.";
+                echo "CLique no botão abaixo para gerar um número aleatório."; 
             }
         ?>
 
