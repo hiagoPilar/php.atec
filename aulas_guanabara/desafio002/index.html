@@ -14,19 +14,12 @@
     <main>
         <p>Gerando um número aleatório entre 0 e 100...</p>
 
-        <?php 
-            
-            if(isset($_GET['random'])){
-                $rand = rand(0, 100);
-                echo "O valor gerado foi: <strong>$rand</strong>";
-            } else {
-                echo "CLique no botão abaixo para gerar um número aleatório."; 
-            }
-        ?>
-
-        <form method="get">
-            <button type="submit" name="random">Gerar</button>
-        </form>
+        <section>
+            <form action="cad.php" method="get">
+                <label for="random">Gerar Número</label>
+                <input type="submit" value="Gerar">
+            </form>
+        </section>
 
     </main>
     
