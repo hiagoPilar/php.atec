@@ -10,7 +10,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/portfolio{firstname}', function ($firstname){
+Route::get('/portfolio/{firstname}', function ($firstname){
     return $firstname;
 });
 
