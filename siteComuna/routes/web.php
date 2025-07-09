@@ -1,7 +1,10 @@
 <?php
 
+use App\Categoria;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\LivrosController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +18,7 @@ use App\Http\Controllers\ProdutoController;
 */
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
+
+Route::get('/livros', [LivrosController::class, 'index']);
+
+Route::get('/categorias', [CategoriaController::class, 'index']);
