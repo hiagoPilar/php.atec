@@ -14,7 +14,8 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        $pets = Pet::orderBy('name')->get();
+        return view('pages.pets.index', ['pets' => $pets]);
     }
 
     /**
