@@ -1,9 +1,9 @@
 <?php
 
+use App\Pet;
 use Illuminate\Database\Seeder;
-use App\Person;
 
-class PersonSeeder extends Seeder
+class PetSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        factory(Person::class, 100)->create(); 
+        factory(Pet::class, 400)->create();
     }
 }
