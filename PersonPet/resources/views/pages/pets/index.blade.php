@@ -2,7 +2,7 @@
 
 @section('content')
 
-@component('components.pets.list', ['pets' => $pets])
+@component('components.pets.pets-list', ['pets' => $pets])
 @endcomponent
 
 @endsection

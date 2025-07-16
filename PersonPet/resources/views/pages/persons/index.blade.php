@@ -2,7 +2,7 @@
 
 @section('content')
 
-@component('components.persons.list', ['persons' => $persons])
+@component('components.persons.person-list', ['persons' => $persons])
 @endcomponent
 
 @endsection
