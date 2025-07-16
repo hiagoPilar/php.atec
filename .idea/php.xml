@@ -324,7 +324,7 @@
       <path value="$PROJECT_DIR$/siteComuna/vendor/laravel/ui" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.2">
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.2">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
   <component name="PhpStanOptionsConfiguration">
@@ -333,6 +333,7 @@
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/site001/phpunit.xml" custom_loader_path="$PROJECT_DIR$/site001/vendor/autoload.php" use_configuration_file="true" />
+      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/car/phpunit.xml" custom_loader_path="$PROJECT_DIR$/car/vendor/autoload.php" use_configuration_file="true" />
       <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/siteComuna/phpunit.xml" custom_loader_path="$PROJECT_DIR$/siteComuna/vendor/autoload.php" use_configuration_file="true" />
     </phpunit_settings>
   </component>
