@@ -10931,3 +10931,30 @@ a.text-dark:focus {
   }
 }
 
+.figuras img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px; /* opcional, deixa as bordas arredondadas */
+    border-color: gray;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* opcional, sombra leve */
+}
+
+.revolucao-russa {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa; /* cor de fundo clara */
+}
+
+.figuras2 img {
+    text-align: center;
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px; /* opcional, deixa as bordas arredondadas */
+    border-color: gray;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* opcional, sombra leve */
+}
