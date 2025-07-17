@@ -18,6 +18,6 @@ Route::get('/comuna', function(){
     return view('/master.main');
 });
 
-Route::get('/gallery', [GalleryController::class, 'index'])->name('components.gallery.gallery');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 

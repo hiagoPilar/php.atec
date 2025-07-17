@@ -11,7 +11,7 @@
                 <a class="nav-link" href="../components.persons.person-list">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../components.gallery.gallery">Gallery</a>
+                <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">Blog</a>
