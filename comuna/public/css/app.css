@@ -10976,3 +10976,9 @@ a.text-dark:focus {
 .gallery-item img:hover {
     transform: scale(1.05);
 }
+
+.contact-section {
+    background-image: url('https://s1.1zoom.me/b5050/670/303541-alexfas01_1920x1080.jpg');
+    padding: 40px 0;
+    height: 900px;
+}

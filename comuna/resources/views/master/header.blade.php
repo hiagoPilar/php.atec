@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg custom-navbar">
-    <a class="navbar-brand" href="#">Comuna</a>
+    <a class="navbar-brand" href="{{ route('main') }}">Comuna</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,16 +8,16 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a class="nav-link" href="../components.persons.person-list">Home</a>
+                <a class="nav-link" href="{{ route('main') }}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('gallery') }}">Gallery</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/about">Blog</a>
+                <a class="nav-link" href="{{ route('blog') }}">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
+                <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
