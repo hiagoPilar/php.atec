@@ -26,3 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/comuna', function(){
     return view('/master.main');
 });
+
+Route::get('/gallery', function (){
+    return view('components.gallery.gallery');
+});

@@ -51,21 +51,32 @@
 
 
     <section class="russa">
-
-         <div class="container mt-4">
-            <div class="row text-center">
-                <div class="col-md-6 figuras2">
+        <div class="container mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 figuras2 d-flex flex-column justify-content-center align-items-center">
                     <h2>Revolução Russa</h2>
-                    <p>A Revolução Russa de 1917 foi um marco na história, resultando na queda do Império Russo e na ascensão do socialismo e da classe trabalhadora.</p>
+                    <p class="text-center">A Revolução Russa de 1917 foi um marco na história, resultando na queda do Império Russo e na ascensão do socialismo e da classe trabalhadora.</p>
                 </div>
-
-                <div class="col-md-6 figuras2">
+                <div class="col-md-6 figuras2 d-flex justify-content-center align-items-center">
                     <img src="{{ asset('img/russia.jpg') }}" alt="Revolução Russa" class="img-fluid mb-2">
                 </div>
             </div>
         </div>
+    </section>
 
-</section>
+    <section class="china">
+        <div class="container mt-4">
+            <div class="row align-items-center">
+                <div class="col-md-6 figuras2 d-flex justify-content-center align-items-center">
+                    <img src="{{ asset('img/china.jpeg') }}" alt="Revolução Chinesa" class="img-fluid mb-2">
+                </div>
+                <div class="col-md-6 figuras2 d-flex flex-column justify-content-center align-items-center">
+                    <h2>Revolução Chinesa</h2>
+                    <p class="text-center">A Revolução Chinesa de 1949 foi um marco na história, resultando na queda do governo nacionalista e na ascensão do socialismo na China.</p>
+                </div>
+            </div>
+        </div>
+    </section>
    
 
 
