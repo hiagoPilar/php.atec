@@ -10958,3 +10958,21 @@ a.text-dark:focus {
     border-color: gray;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* opcional, sombra leve */
 }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
