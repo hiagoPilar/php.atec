@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\User;
+use App\Country; 
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -20,7 +21,7 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
 
-        'country_id' => factory(App\Country::class)->create()->id,
+        'country_id' => Country::inRandomOrder()->first()->id,
 
         'first_name' => $faker->name,
         'last_name' => $faker->name,

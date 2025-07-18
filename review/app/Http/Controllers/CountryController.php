@@ -14,9 +14,9 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countries = Country::all();
-        dd($countries);
-        return view('components.countries.index', compact('countries')); 
+         $countries = Country::all();
+
+         return view('components.countries.index', compact('countries')); 
     }
 
     /**

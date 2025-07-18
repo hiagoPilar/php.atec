@@ -28,4 +28,3 @@ Route::get('/main', function () {
 Route::resource('countries', 'CountryController');
 
 Route::resource('users', 'UserController');
-

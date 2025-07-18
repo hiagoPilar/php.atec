@@ -14,13 +14,14 @@ class CountrySeeder extends Seeder
     {
         $countries = [
             ['name' => 'Portugal'],
-            ['name' => 'Espanha'],
+            ['name' => 'Espanha'], 
             ['name' => 'França'],
-            ['name' => 'Polonia'],
+            ['name' => 'Polônia']
         ];
 
-        foreach ($countries as $country){
-            Country::create($country);
+        // Usa firstOrCreate para evitar duplicatas
+        foreach ($countries as $country) {
+            Country::firstOrCreate($country);
         }
     }
 }

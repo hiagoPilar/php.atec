@@ -1,28 +1,33 @@
-
+@extends('master.main')
 
 @section('content')
+<div class="container mt-4">
+    <h1>Countries List</h1>
+    
+    <!-- Debug visual -->
+    <div class="alert alert-info">
+        Total de países: {{ $countries->count() }}
+    </div>
 
-<h1>Countries List</h1>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Actions</th>
-    </tr>
-    </thead>
-    @foreach ($countries as $country)
+    @if($countries->isNotEmpty())
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
         <tbody>
-        <tr>
-            <th scope="row">{{ $country->id }}</th>
-            <td>{{ $country->name }}</td>
-            <td>
-                <button type="button" class="btn btn-success">Show</button>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-        </tr>
+            @foreach($countries as $country)
+            <tr>
+                <td>{{ $country->id }}</td>
+                <td>{{ $country->name }}</td>
+            </tr>
+            @endforeach
         </tbody>
-    @endforeach
-</table>
+    </table>
+    @else
+    <div class="alert alert-warning">Nenhum país encontrado</div>
+    @endif
+</div>
 @endsection

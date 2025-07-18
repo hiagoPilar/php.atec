@@ -23,7 +23,7 @@
 {{--content --}}
 <main>
     @yield('content')
-    <h1>Review</h1>
+    
    
 
 
