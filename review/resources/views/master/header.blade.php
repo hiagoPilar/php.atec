@@ -10,6 +10,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('main') }}">Home</a>
             </li>
+            <li class="nav-link">
+                <a href="{{ route('countries.index') }}">Countries</a>
+            </li>
+            <li class="nav-link">
+                <a href="{{ route('users.index') }}">Users</a>
+            </li>
            
         </ul>
         <form class="form-inline my-2 my-lg-0">

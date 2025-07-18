@@ -8,10 +8,10 @@ use Faker\Generator as Faker;
 $factory->define(Bicycle::class, function (Faker $faker) {
     return [
         
-        'user_id' => factory(App\User::class)->create()->id,
-        'brand' => $faker->word,
-        'model' => $faker->word,
+        'user_id' => null,
+        'brand' => $faker->randomElement(['Caloi', 'Monark', 'Track', 'Giant']),
+        'model' => $faker->bothify('Model ##??'),
         'color' => $faker->safeColorName,
-        'price' => $faker->numberBetween(100, 5000)
+        'price' => $faker->randomFloat(2, 500, 5000),
     ];
 });

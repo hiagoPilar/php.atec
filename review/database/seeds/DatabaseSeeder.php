@@ -14,15 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(User::class);
-        $this->call(Country::class);
-        $this->call(Bicycle::class);
-
-        //cria os paises
         $this->call(CountrySeeder::class);
-
-        //chama os users
+        
         $this->call(UserSeeder::class);
+        
+        $this->call(BicycleSeeder::class);
+
+        
+
+        
 
     }
 }

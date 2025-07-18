@@ -15,11 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->foreignId('country_id')->constrained('countries');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->date('birthdate');
             $table->timestamps();
         });
     }
@@ -31,6 +30,10 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['country_id']); // Remove a FK antes de dropar
+        });
+        
         Schema::dropIfExists('users');
     }
 }

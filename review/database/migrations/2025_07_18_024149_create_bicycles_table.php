@@ -15,7 +15,13 @@ class CreateBicyclesTable extends Migration
     {
         Schema::create('bicycles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('brand');
+            $table->string('model');
+            $table->string('color');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
+            
         });
     }
 
@@ -26,6 +32,10 @@ class CreateBicyclesTable extends Migration
      */
     public function down()
     {
+        Schema::table('bicycles', function(Blueprint $table){
+            $table->dropForeign(['user_id']); //remove a fk antes de dropar
+        });
+
         Schema::dropIfExists('bicycles');
     }
 }
