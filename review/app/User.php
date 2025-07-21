@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Country;
 
 class User extends Authenticatable
 {
@@ -16,20 +17,23 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'country_id', 'first_name', 'last_name', 
-        'birth_date'
+        'first_name', 'last_name', 
+        'birth_date', 'country_id'
     ];
 
     // Relação: Um usuário pertence a um país
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo('App\Country');
+        // Isso significa que cada User pertence a um Pais
+        // A tabela users precisa ter um campo 'country_id'
     }
 
     // Relação: Um usuário tem muitas bicicletas
     public function bicycles()
     {
         return $this->hasMany(Bicycle::class);
+        
     }
 
     /**

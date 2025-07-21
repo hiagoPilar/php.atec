@@ -15,6 +15,6 @@ class Country extends Model
 
     //um pais tem muitos usuarios
     public function users(){
-         return $this->hasMany(User::class, 'country_id');
+         return $this->hasMany('App\Users');
     }
 }

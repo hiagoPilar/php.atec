@@ -21,10 +21,11 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
 
-        'country_id' => Country::inRandomOrder()->first()->id,
-
         'first_name' => $faker->name,
         'last_name' => $faker->name,
         'birthdate' => $faker->dateTimeBetween('-30 years', '-18 years'),
+        'country_id' => function () {
+            return Country::inRandomOrder()->first()->id;
+        },
     ];
 });
