@@ -19,10 +19,17 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    
+    $nameParts = explode(' ', $faker->name);
+
+    $firstName = array_shift($nameParts);
+
+    $lastName = implode(' ', $nameParts);
+    
     return [
 
-        'first_name' => $faker->name,
-        'last_name' => $faker->name,
+        'first_name' => $firstName,
+        'last_name' => $lastName,
         'birthdate' => $faker->dateTimeBetween('-30 years', '-18 years'),
         'country_id' => function () {
             return Country::inRandomOrder()->first()->id;

@@ -15,9 +15,8 @@ class CreateBicyclesTable extends Migration
     {
         Schema::create('bicycles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('brand');
-            $table->string('model');
             $table->string('color');
             $table->decimal('price', 10, 2);
             $table->timestamps();

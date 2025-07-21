@@ -26,7 +26,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Country');
         // Isso significa que cada User pertence a um Pais
-        // A tabela users precisa ter um campo 'country_id'
+        // A tabela users precisa ter um campo 'country_name'
     }
 
     // Relação: Um usuário tem muitas bicicletas

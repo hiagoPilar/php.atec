@@ -10,7 +10,6 @@ $factory->define(Bicycle::class, function (Faker $faker) {
         
         'user_id' => null,
         'brand' => $faker->randomElement(['Caloi', 'Monark', 'Track', 'Giant']),
-        'model' => $faker->bothify('Model ##??'),
         'color' => $faker->safeColorName,
         'price' => $faker->randomFloat(2, 500, 5000),
     ];

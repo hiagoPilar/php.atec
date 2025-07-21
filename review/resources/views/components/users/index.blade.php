@@ -4,10 +4,6 @@
 <div class="container mt-4">
     <h1>Users List</h1>
     
-    <!-- Debug visual -->
-    <div class="alert alert-info">
-        Total de países: {{ $users->count() }}
-    </div>
 
     @if($users->isNotEmpty())
     <table class="table table-striped">
@@ -26,7 +22,7 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->first_name }}</td>
                 <td>{{ $user->last_name }}</td>
-                <td>{{ $user->country_id }}</td>
+                <td>{{ $user->country->name }}</td>
             </tr>
             @endforeach
         </tbody>
