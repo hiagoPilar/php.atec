@@ -4,10 +4,6 @@
 <div class="container mt-4">
     <h1>Countries List</h1>
     
-    <!-- Debug visual -->
-    <div class="alert alert-info">
-        Total de países: {{ $countries->count() }}
-    </div>
 
     @if($countries->isNotEmpty())
     <table class="table table-striped">

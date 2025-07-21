@@ -31,10 +31,6 @@ class CreateBicyclesTable extends Migration
      */
     public function down()
     {
-        Schema::table('bicycles', function(Blueprint $table){
-            $table->dropForeign(['user_id']); //remove a fk antes de dropar
-        });
-
-        Schema::dropIfExists('bicycles');
+        
     }
 }

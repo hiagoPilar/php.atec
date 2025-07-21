@@ -16,6 +16,9 @@
             <li class="nav-link">
                 <a href="{{ route('users.index') }}">Users</a>
             </li>
+            <li class="nav-link">
+                <a href="{{ route('bicycles.index') }}">Bicycles</a>
+            </li>
            
         </ul>
         <form class="form-inline my-2 my-lg-0">

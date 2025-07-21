@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Country;
+use App\Bicycle;
 
 class User extends Authenticatable
 {
@@ -32,7 +33,7 @@ class User extends Authenticatable
     // Relação: Um usuário tem muitas bicicletas
     public function bicycles()
     {
-        return $this->hasMany(Bicycle::class);
+        return $this->hasMany('App\Bicycle');
         
     }
 

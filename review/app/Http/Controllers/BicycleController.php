@@ -14,7 +14,8 @@ class BicycleController extends Controller
      */
     public function index()
     {
-        //
+        $bicycles = Bicycle::with('user')->get(); //carrega com relacionamento
+        return view('components.bicycles.index', compact('bicycles'));
     }
 
     /**

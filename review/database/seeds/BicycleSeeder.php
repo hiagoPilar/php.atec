@@ -13,14 +13,19 @@ class BicycleSeeder extends Seeder
      */
     public function run()
     {
+        
+       
+        
+        factory(Bicycle::class, 200)->create();
+        
         $users = User::all(); //obtem todos os users
 
         //para cada user, cria 2 bicycle
-        $users->each(function ($user){
-            factory(Bicycle::class, 2)->create([
-                'user_id' => $user->id //associa ao user atual
-            ]);
-        });
+        foreach($users as $user){
+            $user->bicycles()->createMany(
+                factory(Bicycle::class, 2)->make()->toArray()
+            );
+        }
     }
     
 }
