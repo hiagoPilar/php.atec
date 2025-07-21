@@ -13,6 +13,9 @@
             <li class="nav-link">
                 <a href="{{ route('country.index') }}">Country</a>
             </li>
+            <li class="nav-link">
+                <a href="{{ route('user.index') }}">User</a>
+            </li>
            
         </ul>
         <form class="form-inline my-2 my-lg-0">

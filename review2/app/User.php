@@ -3,8 +3,12 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
+use App\Country;
+use App\Bicycle;
 
 class User extends Authenticatable
 {
@@ -16,8 +20,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'country_id', 'first_name', 'last_name', 'birthdate',
     ];
+
+
+    public function country(){
+        return $this->belongsTo('App\Country'); 
+    }
+
+    public function bicycles(){
+        return $this->hasMany('App\Bicycle');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

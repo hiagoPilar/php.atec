@@ -20,3 +20,7 @@ Route::get('/main', function () {
 
 
 Route::resource('country', 'CountryController');
+
+Route::resource('user', 'UserController');
+
+Route::resource('bicycle', 'BicycleController');
