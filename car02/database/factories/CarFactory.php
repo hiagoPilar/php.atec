@@ -13,7 +13,7 @@ $factory->define(Car::class, function (Faker $faker) {
             return Brand::inRandomOrder()->first()->id;
         },
         'registration' => $faker->unique()->regexify('[A-Z]{3}-[0-9]{4}'),
-        'year_of_manufacture' => $faker->dateTimeBetween('-1950 years', '-2025 years'),
+        'year_of_manufacture' => $faker->numberBetween(2000, 2025),
         'color' => $faker->safeColorName
     ];
 });
