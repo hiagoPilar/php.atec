@@ -23,7 +23,7 @@
                 <td>{{ $car->registration }}</td>
                 <td>{{ $car->year_of_manufacture }}</td>
                 <td>{{ $car->color }}</td>
-                <td>{{ $car->$brand->$name }}</td>
+                <td>{{ $car->brand->name ?? 'N/A' }}</td>
             </tr>
             @endforeach
         </tbody>
