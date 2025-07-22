@@ -25,7 +25,24 @@
                 <td>{{ $user->last_name }}</td>
                 <td>{{ $user->country->name }}</td>
 
-              
+
+                <td>
+                    @foreach($user->bicycles->take(2) as $bicycle)
+                        {{ $bicycle->brand }} @if(!$loop->last), @endif
+                    @endforeach
+                </td>
+
+                <td>
+                    <ul class="list-unstyled">
+                        @foreach($user->bicycles as $bicycle)
+                        <li>
+                            <strong>Brand:</strong> {{ $bicycle->brand }}<br>
+                            <strong>Color:</strong> {{ $bicycle->color }}<br>
+                            <strong>Price:</strong> ${{ number_format($bicycle->price, 2) }}
+                        </li>
+                        @endforeach
+                    </ul>
+                </td>
             </tr>
             
             @endforeach
