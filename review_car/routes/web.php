@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,6 @@ Route::get('/main', function(){
 })->name('main');
 
 Route::get('/brands', [BrandController::class, 'index'])->name('brands');
+
+Route::get('/cars', [CarController::class, 'index'])->name('cars');
+

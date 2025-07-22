@@ -14,8 +14,12 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::with('brand')->get(); 
+
+        return view('components.car.index', compact('cars'));
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
