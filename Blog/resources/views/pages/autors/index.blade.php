@@ -18,7 +18,7 @@
             @foreach($autors as $autor)
             <tr>
                 <td>{{ $autor->id }}</td>
-                <td>{{ $autor->name }}</td>
+                <td>{{ $autor->nome }}</td>
                 <td>{{ $autor->email }}</td>
             </tr>
             @endforeach

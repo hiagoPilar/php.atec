@@ -12,7 +12,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('autors') }}">Autor</a>
+                <a class="nav-link" href="{{ route('autors.index') }}">Autor</a>
             </li>
 
 

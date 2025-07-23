@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,19 +14,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/main', function(){
+    return view ('master.main');
+})->name('main');
 
-Route::resource('autors', 'AutorController@index');
+
+
+Route::prefix('autors')->group(function(){
+    Route::get('', 'AutorController@index');
+    Route::get('', [AutorController::class, 'index'])->name('autors.index');
+});
+
+
 
 Route::prefix('categorias')->group(function(){
     Route::get('', 'CategoriaController@index');
 });
 
+
+
 Route::prefix('posts')->group(function(){
     Route::get('', 'PostController@index');
 });
 
+
+
 Route::prefix('comentarios')->group(function(){
     Route::get('', 'ComentarioController@index');
 });
+
 
 
