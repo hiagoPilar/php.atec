@@ -21,7 +21,7 @@ class CreateTreinosTable extends Migration
               ->onDelete('cascade');   // Remove treinos se membro for excluído
             $table->enum('tipo', ['superior', 'inferior', 'cardio' ]);
             $table->date('data');
-            $table->time('duracao');
+            $table->string('duracao');
             $table->string('notas');
 
             

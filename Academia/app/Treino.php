@@ -15,6 +15,6 @@ class Treino extends Model
     ];
 
     public function membro(){
-        return $this->belongsTo(Membro::class);
+        return $this->belongsTo(Membro::class, 'id_membro');
     }
 }

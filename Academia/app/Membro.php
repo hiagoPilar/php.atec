@@ -19,7 +19,7 @@ class Membro extends Model
     }
 
     public function treinos (){
-        return $this->hasMany(Treino::class);
+        return $this->hasMany(Treino::class, 'id_membro');
     }
     
 }

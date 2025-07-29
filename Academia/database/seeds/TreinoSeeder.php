@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Membro;
 use App\Treino;
+use Random\RandomException;
 
 class TreinoSeeder extends Seeder
 {
@@ -21,15 +22,34 @@ class TreinoSeeder extends Seeder
         }
 
         //obten membros sem treino
-        $membrosSemTreino = Membro::doesnHave('treino')->get();
+        $membrosSemTreino = Membro::doesntHave('treinos')->get(); 
 
         if($membrosSemTreino->isEmpty()){
             $this->command->info('Todos os membros possuem treino');
             return;
         }
 
-        //cria treino para cada membro
 
+        // Obter membros existentes
+        $membros = Membro::all();
+        
+        // Criar treinos para cada membro
+        $membros->each(function ($membro) {
+
+            $tiposDisponiveis = ['superior', 'inferior', 'cardio'];
+            $tipoSelecionado = $tiposDisponiveis[array_rand($tiposDisponiveis)];
+
+            $membro->treinos()->create([
+                'id_membro' => $membro->id_membro,
+                'tipo' => $tipoSelecionado,
+                'data' => now()->addDays(rand(1, 30)), // Data entre 1 e 30 dias no futuro
+                'duracao' => rand(30, 90) . 'minutos', // Corrigido de random() para rand()
+                'notas' => 'Treino gerado automaticamente'
+            ]);
+        });
+
+        /*
+        //cria treino para cada membro
         $membrosSemTreino->each(function($membro){
             
             $tipos = ['superior', 'inferior', 'cardio'];
@@ -43,5 +63,6 @@ class TreinoSeeder extends Seeder
 
             ]);
         });
+        */
     }
 }

@@ -14,9 +14,7 @@ class ExercicioSeeder extends Seeder
     {
         // Tipos de exercícios que queremos criar
         $tiposExercicios = [
-            'supino', 'rosca', 'agachamento', 
-            'testa', 'remada', 'corrida',
-            'leg press', 'triceps corda'
+            'supino', 'rosca', 'agachamento', 'testa', 'remada', 'corrida'
         ];
 
         // Para cada tipo, cria um exercício (e automaticamente um equipamento)
@@ -27,3 +25,5 @@ class ExercicioSeeder extends Seeder
         }
     }
 }
+
+

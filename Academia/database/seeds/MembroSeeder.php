@@ -14,10 +14,15 @@ class MembroSeeder extends Seeder
     public function run()
     {
         
-        //cria 30 membros cada um com sua assinatura
-        factory(Membro::class, 30)->create()->each(function($membro){
-            //criar uma assinatura para cada membro
-            $membro->assinatura()->save(factory(Assinatura::class)->create());
+        // Cria 30 membros cada um com sua assinatura
+        factory(Membro::class, 30)->create()->each(function($membro) {
+            // Cria e associa a assinatura ao membro corretamente
+            $membro->assinatura()->create([
+                'tipo' => 'basico', // ou use valores do seu ENUM
+                'data_inicio' => now(),
+                'data_fim' => now()->addYear(),
+                'ativo' => true
+            ]);
         });
 
         // Ou alternativa mais explícita:
