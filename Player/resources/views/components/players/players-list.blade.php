@@ -1,3 +1,9 @@
+@extends ('master.main')
+@section ('content')
+<div class="d-grid gap-2 d-md-flex justify-content-md-center">
+     <a class="btn btn-success" role="button" href="{{ url('players/create') }}" >Adicionar novo player</a>
+ </div>
+
 <h1>Players List</h1>
 <table class="table">
   <thead>
@@ -25,3 +31,4 @@
   </tbody>
     @endforeach
 </table>
+@endsection
