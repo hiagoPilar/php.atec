@@ -25,11 +25,7 @@
                     <td>{{ $player->email }}</td>
                     <td>{{ $player->address }}</td>
                     
-                    <td>
-                        <a href="{{ route('usuarios.index', $usuario->id) }}" class="btn btn-sm btn-primary">
-                            <i class="fas fa-eye"></i> Ver
-                        </a>
-                    </td>
+                    
                 </tr>
                 @endforeach
             </tbody>
