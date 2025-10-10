@@ -8,7 +8,7 @@
                 <h2>Editar País: {{ $country->name }}</h2>
             </div>
             <div class="card-body">
-                <form action="{{ route('countries.update', $country) }}" method="POST">
+                <form action="{{ route('countries.update', $country->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -30,3 +30,5 @@
     </div>
 </div>
 @endsection
+
+

@@ -11,7 +11,7 @@
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Data de Criação</th>
+           
             <th>Ações</th>
         </tr>
     </thead>
@@ -20,11 +20,11 @@
         <tr>
             <td>{{ $country->id }}</td>
             <td>{{ $country->name }}</td>
-            <td>{{ $country->created_at->format('d/m/Y H:i') }}</td>
+
             <td>
-                <a href="{{ route('countries.show', $country) }}" class="btn btn-info btn-sm">Ver</a>
-                <a href="{{ route('countries.edit', $country) }}" class="btn btn-warning btn-sm">Editar</a>
-                <form action="{{ route('countries.destroy', $country) }}" method="POST" class="d-inline">
+                <a href="{{ route('countries.show', $country->id) }}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{{ route('countries.edit', $country->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                <form action="{{ route('countries.destroy', $country->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm"
@@ -39,7 +39,7 @@
 </table>
 
 <div class="d-flex justify-content-between">
-    <a href="{{ url('/') }}" class="btn btn-secondary">Voltar ao Início</a>
+    <a href="{{ route('main') }}" class="btn btn-secondary">Voltar ao Início</a>
     <span class="text-muted">Total: {{ $countries->count() }} países</span>
 </div>
 @endsection

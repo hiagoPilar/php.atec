@@ -7,98 +7,68 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $countries = Country::all();
         return view('countries.index', compact('countries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('countries.create')
+        return view('countries.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:countries',
-        ])
+        ]);
 
-        Country::create($request->all());
+        Country::create([
+            'name' => $request->name
+        ]);
 
-        return redirect()->route('countries.index')->with('sucess', 'Country created!');
+        return redirect()->route('countries.index')->with('success', 'País criado!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Country $country)
+    public function show($id)
     {
+        $country = Country::findOrFail($id);
         return view('countries.show', compact('country'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Country $country)
+    public function edit($id)
     {
+        $country = Country::findOrFail($id);
         return view('countries.edit', compact('country'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Country $country)
+    public function update(Request $request, $id)
     {
+        $country = Country::findOrFail($id);
+
         $request->validate([
-            'name' => 'required|string|max:255|unique:countries,name,' . $country->id,
+            'name' => 'required|string|max:255|unique:countries,name,' . $id,
         ]);
 
-        $country->update($request->all());
+        $country->update([
+            'name' => $request->name
+        ]);
 
-        return redirect()->route(''countries.index)->with('sucess', 'Country updated!');
+        return redirect()->route('countries.index')->with('success', 'País atualizado!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Country $country)
+    public function destroy($id)
     {
-        if($country->users()->count() > 0){
-            return redirect()->route('countries.index')->with('error', 'Not possible why there are users associated.');
+        $country = Country::findOrFail($id);
+
+        if ($country->users()->count() > 0) {
+            return redirect()->route('countries.index')
+                ->with('error', 'Não é possível excluir - existem usuários associados!');
         }
 
         $country->delete();
 
-        return redirect()->route('countries.index')->with('success', 'Country deleted.');
+        return redirect()->route('countries.index')->with('success', 'País excluído!');
     }
 }

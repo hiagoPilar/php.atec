@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bicycle;
+use App\User;
 use Illuminate\Http\Request;
 
 class BicycleController extends Controller
@@ -14,7 +15,8 @@ class BicycleController extends Controller
      */
     public function index()
     {
-        //
+        $bicycles = Bicycle::with('user')->get();
+        return view('bicycles.index', compact('bicycles'));
     }
 
     /**
@@ -24,7 +26,8 @@ class BicycleController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('bicycles.create', compact('users'));
     }
 
     /**
@@ -35,7 +38,23 @@ class BicycleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'brand' => 'required|string|max:255',
+            'model' => 'required|string|max:255',
+            'color' => 'required|string|max:100',
+            'price' => 'required|numeric|min:0',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        Bicycle::create([
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'color' => $request->color,
+            'price' => $request->price,
+            'user_id' => $request->user_id,
+        ]);
+
+        return redirect()->route('bicycles.index')->with('sucess', 'Bicycle created sucessfully!');
     }
 
     /**
@@ -44,9 +63,12 @@ class BicycleController extends Controller
      * @param  \App\Bicycle  $bicycle
      * @return \Illuminate\Http\Response
      */
-    public function show(Bicycle $bicycle)
+    public function show($id)
     {
-        //
+        $bicycle = Bicycle::findOrFail($id);
+
+        $bicycle->load('user');
+        return view('bicycles.show', compact('bicycle'));
     }
 
     /**
@@ -55,9 +77,12 @@ class BicycleController extends Controller
      * @param  \App\Bicycle  $bicycle
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bicycle $bicycle)
+    public function edit($id)
     {
-        //
+        $bicycle = Bicycle::findOrFail($id);
+
+        $users = User::all();
+        return view('bicycles.edit', compact('bicycle', 'users'));
     }
 
     /**
@@ -67,9 +92,27 @@ class BicycleController extends Controller
      * @param  \App\Bicycle  $bicycle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bicycle $bicycle)
+    public function update(Request $request, $id)
     {
-        //
+        $bicycle = Bicycle::findOrFail($id);
+
+        $request->validate([
+            'brand' => 'required|string|max:255',
+            'model' => 'required|string|max:255',
+            'color' => 'required|string|max:100',
+            'price' => 'required|numeric|min:0',
+            'user_id' => 'required|exists:users,id',
+        ]);
+
+        $id->update([
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'color' => $request->color,
+            'price' => $request->price,
+            'user_id' => $request->user_id,
+        ]);
+
+        return redirect()->route('bicycles.index')->with('success', 'Bicycle updated!');
     }
 
     /**
@@ -78,8 +121,18 @@ class BicycleController extends Controller
      * @param  \App\Bicycle  $bicycle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bicycle $bicycle)
+    public function destroy($id)
     {
-        //
+        $bicycle = Bicycle::findOrFail($id);
+
+        if($bicycle->users()->count() > 0){
+            return redirect()->route('bicycles.index')->with('error', 'Not possible!');
+        }
+
+        $bicycle->delete();
+        return redirect()->route('bicycle.index')->with('success', 'Deleted!');
+
+
+
     }
 }
