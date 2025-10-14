@@ -18,10 +18,11 @@
 {{--Header --}}
 @component('master.header')
 @endcomponent
+
 {{-- .Header --}}
 
 {{--content --}}
-<main>
+<main class="py-4 container">
     @yield('content')
 
 

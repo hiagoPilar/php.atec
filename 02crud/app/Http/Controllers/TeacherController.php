@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
+use App\School;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -12,9 +13,18 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $query = Teacher::with('school'); //puxa o nome da escola
+
+        if($request->filled('school_id')){
+            $query->where('school_id', $request->school_id);
+        }
+
+        $teachers = $query->paginate(10);
+        $schools = School::all();
+
+        return view('teachers.index', compact('teachers', 'schools'));
     }
 
     /**
@@ -24,7 +34,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        $schools = School::all();
+        return view('teachers.create', compact('schools'));
     }
 
     /**
@@ -35,7 +46,15 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|string|max:100',
+            'last_name'  => 'required|string|max:100',
+            'hire_date'  => 'required|date',
+            'school_id'  => 'required|exists:schools,id',
+        ]);
+
+        Teacher::create($request->all());
+        return redirect()->route('teachers.index')->with('success', 'Professor ' . $teacher->name . ' criado com sucesso!');
     }
 
     /**
@@ -55,9 +74,12 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Teacher $teacher)
+    public function edit($id)
     {
-        //
+        $teacher = Teacher::findOrFail($id);
+        $schools = School::all();
+
+        return view('teachers.edit', compact('teacher', 'schools'));
     }
 
     /**
@@ -67,9 +89,21 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, $id)
     {
-        //
+        $teacher = Teacher::withTrashed()->findOrFail($id);
+
+        $request->validated([
+            'first_name' => 'required|string|max:100',
+            'last_name'  => 'required|string|max:100',
+            'hire_date'  => 'required|date',
+            'school_id'  => 'required|exists:schools,id',
+        ]);
+
+
+        $teacher->update($request->all());
+
+        return redirect()->route('teachers.index')->with('success', 'Teacher '.$teacher->name.' updated!');
     }
 
     /**
@@ -78,8 +112,13 @@ class TeacherController extends Controller
      * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Teacher $teacher)
+    public function destroy($id)
     {
-        //
+        $teacher = Teacher::findOrFail($id);
+        $teacher->delete();
+
+        return redirect()->route('teachers.index')->with('success', 'Teacher '.$teacher->name.' deleted!');
     }
+
+
 }
